@@ -1,0 +1,17 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+
+/* TEAM */
+  Designer: Koy Carraway
+  Site: www.deargm.com
+  Twitter: @deargm
+  Location: Earth
+
+/* THANKS */
+  Names (& URL): HTML5 Boilerplate, 320andUp
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: Modernizr, jQuery
+  Software:

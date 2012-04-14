@@ -1,0 +1,86 @@
+
+/* @media 992px
+============================================================================= */
+@media only screen and (min-width: 992px) {
+
+// 1. ROOT
+// =============================================================================
+body { 
+	width : 80% /* 896px */;
+	max-width : 896px; 
+}
+// 2. HEADINGS
+// =============================================================================
+
+h1 { .font-size(30); }
+
+// 3. TYPOGRAPHY
+// =============================================================================
+// 4. LINKS
+// =============================================================================
+// 5. FIGURES & IMAGES
+// =============================================================================
+// 6. FORMS
+// =============================================================================
+// 7. TABLES
+// =============================================================================
+// 8. ROLE = BANNER, NAVIGATION, CONTENT, MAIN, COMPLEMENTARY, CONTENTINFO
+// =============================================================================
+header[role="banner"] {
+	padding-right : 300px;
+	background : transparent url(../img/header.png) no-repeat 100% 100%; 
+}
+
+header[role="banner"] p {
+	font-size : 1.125em; /* 18 / 16 = 1.125 */
+}
+
+*[role="main"] {
+	float : left;
+	width : 58.92%; /* 528 / 896 = .5892*/ 
+	margin-bottom : 0;
+	border-bottom-width : 0;
+}
+
+*[role="main"] p {
+	line-height : 1.4;
+}
+
+*[role="complementary"] {
+	float : right;
+	width : 38.39%; /* 344 / 896 = .3839*/ 
+	overflow : hidden; 
+}
+
+*[role="complementary"] ol {
+	padding : 12px; 
+}
+
+*[role="complementary"] li.dl {
+	margin-bottom : 1.5em;
+	background : rgb(32,38,45) url(../img/a-dl.png) no-repeat 8px 12px; 
+}
+
+*[role="complementary"] li.dl a {
+	display : block;
+	padding : 8px 8px 8px 48px; 
+}
+
+*[role="complimentary"] li.dl p {
+	margin : 0; 
+}
+
+footer[role="contentinfo"] .vcard {
+	width : 58.92%; /* 528 / 896 = .5892*/ 
+	margin-right : 0; 
+}
+
+footer[role="contentinfo"] small {
+	width : 38.39%; /* 344 / 896 = .3839*/ 
+}
+// 9. GLOBAL OBJECTS
+// =============================================================================
+// 10. MODERNIZR
+// =============================================================================
+
+}

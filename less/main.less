@@ -1,0 +1,398 @@
+/* ===== CSS STYLSHEET =========================================================
+Author: Koy Carraway
+Last Updated: April 5, 2012
+============================================================================= */
+
+/*
+1 ROOT
+2 HEADINGS
+3 TYPOGRAPHY
+4 LINKS
+5 FIGURES & IMAGES
+6 TABLES
+7 FORMS
+8 ROLE = BANNER, NAVIGATION, CONTENT, MAIN, COMPLEMENTARY, CONTENTINFO
+9 GLOBAL OBJECTS
+10 MODERNIZR
+11 VENDOR-SPECIFIC
+*/
+
+@import "normalize.less";
+@import "variables.less";
+@import "../fonts/websymbols.css";
+
+// LESS BASE MIXINS
+// =============================================================================
+
+// Base Colors
+@black:     rgb(31,32,33);
+@darkgrey:  lighten(@black, 20%);
+@grey:      lighten(@black, 30%);
+@lightgrey: lighten(@black, 40%);
+@offwhite:  lighten(@black, 80%);
+@white:     lighten(@black, 100%);
+@blue:      rgb(40,170,230);
+@pink:      rgb(254, 87, 161);
+
+// Heading Colors
+@headingColor: rgb(31,32,33);
+@headingFontFamily;
+@headingFontWeight;
+
+// Link Colors
+@linkcol:        rgb(21,140,201);
+@linkcolhover:   darken(@linkcol, 10%);
+@linkcolvisited: rgb(21,140,201);
+@linkcolfocus:   darken(@linkcol, 10%);
+
+// Base Font Sizing
+.font-size(@font-size: 16) {
+	@rem: (@font-size / 10);
+	font-size: @font-size * 1px;
+	font-size: ~"@{rem}rem";
+}
+
+// Baseline
+@baseline: 1.5em;
+
+
+/* 1. ROOT 
+============================================================================= */
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+html {
+	overflow-y: scroll;
+	background: @white;
+	font-size: 62.5%;
+}
+
+body { 
+	margin: 0 auto;
+	padding: 0;
+	width: 90%; /* 252px */
+	.font-size();
+	.sans-serif();
+	color: @black; 
+	background-color: transparent;
+	-webkit-tap-highlight-color : #fe57a1;
+}
+
+button, input, select, textarea { 
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+	color: @darkgrey;
+}
+
+
+/* 2. HEADINGS (H1,H2,H3,H4,H5,H6)
+============================================================================= */
+
+h1, h2, h3, h4, h5, h6 {
+	.sans-serif;
+	font-weight: bold;
+}
+
+h1 { 
+	margin-bottom : @baseline / 2;
+	.font-size(30);
+	line-height: 1.2; 
+	color: @blue;
+}
+
+h2 { 
+	margin-bottom : @baseline / 2;
+	.font-size(24);
+	line-height: 1.2;
+	color: @darkgrey;
+}
+
+h3 { 
+	margin-bottom : @baseline / 1.5;
+	.font-size(18);
+	line-height: 1.3; 
+}
+
+h4 { 
+	margin-bottom : @baseline / 1.5;
+	.font-size(14);
+	line-height: 1.25; 
+}
+
+h5 { 
+	margin-bottom : @baseline;
+	.font-size(12);  
+}
+
+h6 { .font-size(11); }
+
+
+/* 3. TYPOGRAPHY
+============================================================================= */
+
+// Font Families
+.sans-serif { font-family: 'Asap', sans-serif; }
+.serif { font-family: Cambria, Georgia, Times New Roman, Times, serif; }
+.monospace { font-family: Menlo, Monaco, "Courier New", monospace; }
+.glyphs {
+	font-family: 'WebSymbolsRegular';
+	.font-size(25);
+}
+
+// Typography Defaults
+p, ol, ul, dl, address { 
+	margin-bottom: @baseline; 
+	.font-size(16);
+}
+
+p {
+	color: @lightgrey;
+	hyphens: auto; 
+	text-align: justify; 
+}
+
+em, i { font-style: italic;}
+b, strong { font-weight: bold; }
+dfn { font-style: italic; }
+
+// Lists
+ul, ol { 
+	margin: 0 0 @baseline -24px; 
+	padding: 0 0 0 24px; 
+}
+
+li ul, li ol { 
+	margin: 0;
+	.font-size(16); 
+}
+
+dl, dd { 
+	margin-bottom: @baseline; 
+}
+
+dt { font-weight: normal; }
+
+blockquote  { 
+	margin: 0 0 @baseline -24px; 
+	padding-left: 24px; 
+	border-left: 1px solid @lightgrey;
+	font-style: italic;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none; 
+}
+
+hr { 
+	display: block; 
+	margin: 1em 0; 
+	padding: 0;
+	height: 1px; 
+	border: 0; 
+	border-top: 1px solid @lightgrey;
+}
+
+ins { 
+	background-color: @lightgrey; 
+	color: @black; 
+	text-decoration: none;
+}
+
+mark { 
+	background-color: @lightgrey; 
+	color: @black; 
+	font-style: italic; 
+	font-weight: bold;
+}
+
+pre, code, kbd, samp { 
+	.monospace;
+	.font-size(14);
+	line-height : @baseline;
+}
+
+small { .font-size(14); }
+
+sub, sup { 
+	.font-size(12);
+	line-height: 0; 
+	position: relative; 
+	vertical-align: baseline;
+}
+
+sup { top: -.5em; }
+
+sub { bottom: -.25em; }
+
+/* 4. LINKS
+============================================================================= */
+
+a {
+	color: @linkcol;
+	text-decoration: none;
+	&:hover {
+		color: @linkcolhover;
+		outline: 0;
+		text-decoration: underline;
+	}
+	&:visited {
+		color: @linkcolvisited;
+	}
+	&:focus {
+		color: @linkcolfocus;
+		outline: thin dotted;
+	}
+	&:active {
+		outline: 0;
+	}
+}
+
+/* 5. FIGURES & IMAGES
+============================================================================= */
+
+figure { margin-bottom: @baseline; }
+
+figure img, figure object, figure embed {
+	margin-bottom: @baseline / 2;
+	max-width: 100%;
+}
+
+figcaption {
+	display: block;
+	font-weight: normal;
+}
+
+/* 6. TABLES
+============================================================================= */
+
+table { 
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin-bottom: @baseline; 
+	width: 100%;
+	.font-size(14);
+}
+
+th, td, caption { 
+	padding: @baseline / 8 10px @baseline / 8 5px;
+}
+
+tfoot { font-style: italic; }
+caption { background-color: transparent; }
+tbody tr:nth-child(odd) td { background-color: @lightgrey; }
+
+/* 7. FORMS (See css/mylibs/forms.css)
+============================================================================= */
+/* 8. ROLE = BANNER, NAVIGATION, CONTENT, MAIN, COMPLEMENTARY, CONTENTINFO
+============================================================================= */
+
+header[role="banner"] {
+	margin-bottom: 1.5em;
+	padding-top: 50px;
+	border-bottom: 5px solid @blue;
+}
+
+header[role="banner"] hgroup {
+	text-align: center;
+}
+
+header[role="banner"] h1 + h2 {
+	margin-top: -.75em;
+	margin-bottom: 1em;
+	.font-size(24);
+	line-height: 1.3;
+}
+
+*[role="complementary"] ul {
+	list-style-type: none;
+}
+
+*[role="complementary"] ol {
+	list-style-type: none;
+	margin-bottom: 3em;
+	margin-left: 0; 
+	padding: 24px; 
+	background-color: @offwhite; 
+}
+
+*[role="complementary"] ol h3 {
+	color: @black;
+	.font-size(16);
+	margin-bottom: 0;
+}
+
+*[role="complementary"] ol li:last-child p {
+	margin-bottom: 0;
+}
+
+*[role="complementary"] .dl p {
+	margin: 0;
+}
+
+footer[role="contentinfo"] {
+	padding-top: 1.5em; 
+	border-top: 5px solid @blue;
+}
+
+footer[role="contentinfo"] ul {
+	list-style-type: none;
+}
+
+footer[role="contentinfo"] li:nth-of-type(2) {
+	margin-bottom: 1em;
+}
+
+/* 9. GLOBAL OBJECTS
+============================================================================= */
+
+.logo {
+	.center-block;
+	background-image: url(../img/deargm_logo@2x.png);
+	width: 300px;
+	height: 100px;
+	background-size: 300px 100px;
+}
+
+/* 10. MODERNIZR
+============================================================================= */
+/* 11. VENDOR-SPECIFIC
+============================================================================= */
+
+::-webkit-input-placeholder { .font-size(14); }
+input:-moz-placeholder { .font-size(14); }
+
+::selection {
+	background: @pink;
+	color: @white;
+	text-shadow: none;
+}
+
+::-moz-selection { 
+	background: @pink;
+	color: @white;
+	text-shadow: none; 
+}
+
+img::selection { background: transparent; }
+img::-moz-selection { background: transparent; }
+
+p {
+	// http://www.w3.org/TR/css3-text/#hyphenation
+	-webkit-hyphens : auto;
+	-webkit-hyphenate-character : "\2010";
+	-webkit-hyphenate-limit-after : 1;
+	-webkit-hyphenate-limit-before : 3;
+	-moz-hyphens : auto;
+}
+
+/* Import Media Queries
+============================================================================= */
+@import "480";
+@import "600";
+@import "768";
+@import "992";
+@import "1382";
+
+// Helpers.LESS
+@import "helpers";
+
